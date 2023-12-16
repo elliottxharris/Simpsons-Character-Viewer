@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class CharacterService {
-  Future<List<Map<String, dynamic>>?> getCharacters() async {
+  Future<List<dynamic>?> getCharacters() async {
     final url = Uri.parse(
         'http://api.duckduckgo.com/?q=simpsons+characters&format=json');
 

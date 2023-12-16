@@ -8,7 +8,7 @@ class CharacterListCubit extends Cubit<CharacterListState> {
   Future<void> fetchCharacters() async {
     emit(CharacterListCubitFetchingData());
 
-    final List<Map<String, dynamic>>? json = await service.getCharacters();
+    final List<dynamic>? json = await service.getCharacters();
 
     if (json != null) {
       final List<Character> characters =

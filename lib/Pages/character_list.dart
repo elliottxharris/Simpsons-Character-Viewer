@@ -1,21 +1,10 @@
+import 'package:anywhere_exercise/View%20Model/character_list_state.dart';
 import 'package:anywhere_exercise/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CharacterList extends StatefulWidget {
+class CharacterList extends StatelessWidget {
   const CharacterList({super.key});
-
-  @override
-  State<CharacterList> createState() => _CharacterListState();
-}
-
-class _CharacterListState extends State<CharacterList> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +13,25 @@ class _CharacterListState extends State<CharacterList> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Characters'),
       ),
-      body: Container(),
+      body: BlocBuilder<CharacterListCubit, CharacterListState>(
+          builder: (context, state) {
+        switch (state) {
+          case CharacterListCubitUnitialized():
+            context.read<CharacterListCubit>().fetchCharacters();
+            return Container();
+          case CharacterListCubitFetchingData():
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          case CharacterListCubitItialized():
+            return ListView.builder(
+              itemCount: state.characters.length,
+              itemBuilder: (context, index) => Text(state.characters[index].name),
+            );
+          default:
+            return const Text('Something went wrong!');
+        }
+      }),
     );
   }
 }

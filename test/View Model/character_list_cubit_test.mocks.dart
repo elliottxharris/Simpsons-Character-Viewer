@@ -30,12 +30,11 @@ class MockCharacterService extends _i1.Mock implements _i2.CharacterService {
   }
 
   @override
-  _i3.Future<List<Map<String, dynamic>>?> getCharacters() =>
-      (super.noSuchMethod(
+  _i3.Future<List<dynamic>?> getCharacters() => (super.noSuchMethod(
         Invocation.method(
           #getCharacters,
           [],
         ),
-        returnValue: _i3.Future<List<Map<String, dynamic>>?>.value(),
-      ) as _i3.Future<List<Map<String, dynamic>>?>);
+        returnValue: _i3.Future<List<dynamic>?>.value(),
+      ) as _i3.Future<List<dynamic>?>);
 }
