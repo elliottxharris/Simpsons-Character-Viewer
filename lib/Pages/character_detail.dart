@@ -1,5 +1,6 @@
 import 'package:anywhere_exercise/Model/character.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class CharacterDetail extends StatelessWidget {
   final Character character;
@@ -10,6 +11,30 @@ class CharacterDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(character.name),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            character.imageUrl.isNotEmpty
+                ? Center(
+                    child: CachedNetworkImage(
+                      imageUrl: 'https://duckduckgo.com/${character.imageUrl}',
+                      placeholder: (_, url) =>
+                          const CircularProgressIndicator(),
+                    ),
+                  )
+                : Container(),
+            const SizedBox(
+              height: 16,
+            ),
+            Text(
+              character.description,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }

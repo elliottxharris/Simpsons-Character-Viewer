@@ -17,6 +17,6 @@ class Character {
       : _name = (json['FirstURL'] as String)
             .replaceAll('https://duckduckgo.com/', '')
             .replaceAll('_', ' '),
-        _description = json['Text'],
+        _description = (json['Text'] as String).split(' - ').last,
         _imageUrl = json['Icon']['URL'];
 }
