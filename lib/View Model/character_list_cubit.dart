@@ -1,12 +1,13 @@
 part of 'character_list_state.dart';
 
 class CharacterListCubit extends Cubit<CharacterListState> {
-  CharacterListCubit() : super(CharacterListCubitUnitialized());
+  final CharacterService service;
+  CharacterListCubit({required this.service})
+      : super(CharacterListCubitUnitialized());
 
   Future<void> fetchCharacters() async {
     emit(CharacterListCubitFetchingData());
 
-    final CharacterService service = CharacterService();
     final List<Map<String, dynamic>>? json = await service.getCharacters();
 
     if (json != null) {
