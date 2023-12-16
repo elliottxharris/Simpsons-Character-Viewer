@@ -1,6 +1,6 @@
 import 'package:anywhere_exercise/Pages/character_list.dart';
 import 'package:anywhere_exercise/Service/character_service.dart';
-import 'package:anywhere_exercise/View%20Model/character_list_state.dart';
+import 'package:anywhere_exercise/ViewModel/character_list_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
