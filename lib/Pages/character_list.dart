@@ -1,4 +1,5 @@
 import 'package:anywhere_exercise/ViewModel/character_list_state.dart';
+import 'package:anywhere_exercise/Widgets/character_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +18,9 @@ class CharacterList extends StatelessWidget {
         switch (state) {
           case CharacterListCubitUnitialized():
             context.read<CharacterListCubit>().fetchCharacters();
-            return Container();
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           case CharacterListCubitFetchingData():
             return const Center(
               child: CircularProgressIndicator(),
@@ -25,7 +28,9 @@ class CharacterList extends StatelessWidget {
           case CharacterListCubitItialized():
             return ListView.builder(
               itemCount: state.characters.length,
-              itemBuilder: (context, index) => Text(state.characters[index].name),
+              itemBuilder: (context, index) => CharacterTile(
+                character: state.characters[index],
+              ),
             );
           default:
             return const Text('Something went wrong!');
