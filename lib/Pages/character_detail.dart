@@ -18,14 +18,19 @@ class CharacterDetail extends StatelessWidget {
         child: Column(
           children: [
             character.imageUrl.isNotEmpty
-                ? Center(
-                    child: CachedNetworkImage(
-                      imageUrl: 'https://duckduckgo.com/${character.imageUrl}',
-                      placeholder: (_, url) =>
-                          const CircularProgressIndicator(),
+                ? SizedBox(
+                  height: 200,
+                  child: Center(
+                      child: CachedNetworkImage(
+                        imageUrl: 'https://duckduckgo.com/${character.imageUrl}',
+                        placeholder: (_, url) => const Padding(
+                          padding: EdgeInsets.only(top: 40),
+                          child: CircularProgressIndicator(),
+                        ),
+                      ),
                     ),
-                  )
-                : Container(),
+                )
+                : Image.asset('assets/placeholder.png'),
             const SizedBox(
               height: 16,
             ),
