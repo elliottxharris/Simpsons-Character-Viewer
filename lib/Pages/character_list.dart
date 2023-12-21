@@ -27,10 +27,23 @@ class CharacterList extends StatelessWidget {
             );
           case CharacterListCubitItialized():
             return ListView.builder(
+              controller: ScrollController(initialScrollOffset: 66),
               itemCount: state.characters.length,
-              itemBuilder: (context, index) => CharacterTile(
-                character: state.characters[index],
-              ),
+              itemBuilder: (context, index) => index == 0
+                  ? const SizedBox(
+                      height: 66,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(25.0)),),
+                          hintText: 'Search...',
+                        )),
+                      ),
+                    )
+                  : CharacterTile(
+                      character: state.characters[index],
+                    ),
             );
           default:
             return const Text('Something went wrong!');
