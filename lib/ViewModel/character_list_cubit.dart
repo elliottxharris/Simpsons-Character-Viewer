@@ -19,4 +19,19 @@ class CharacterListCubit extends Cubit<CharacterListState> {
       emit(CharacterListCubitErrored());
     }
   }
+
+  void searchCharacters({required String input}) {
+    List<Character> searchCharacters = (state as CharacterListCubitItialized)
+        .characters
+        .where((element) =>
+            element.name.toLowerCase().contains(input) ||
+            element.description.toLowerCase().contains(input))
+        .toList();
+        
+    emit(CharacterListCubitItialized(
+      characters: (state as CharacterListCubitItialized).characters,
+      searchCharacters: searchCharacters,
+      hasSearched: true,
+    ));
+  }
 }

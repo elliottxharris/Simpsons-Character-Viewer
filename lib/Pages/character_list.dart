@@ -26,24 +26,33 @@ class CharacterList extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           case CharacterListCubitItialized():
-            return ListView.builder(
+            return ListView(
               controller: ScrollController(initialScrollOffset: 66),
-              itemCount: state.characters.length,
-              itemBuilder: (context, index) => index == 0
-                  ? const SizedBox(
-                      height: 66,
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: TextField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(25.0)),),
-                          hintText: 'Search...',
-                        )),
+              children: [
+                SizedBox(
+                  height: 66,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                        ),
+                        hintText: 'Search...',
                       ),
-                    )
-                  : CharacterTile(
-                      character: state.characters[index],
+                      onChanged: (val) => context
+                          .read<CharacterListCubit>()
+                          .searchCharacters(input: val),
                     ),
+                  ),
+                ),
+                ...(state.hasSearched
+                        ? state.searchCharacters!
+                            .map((e) => CharacterTile(character: e))
+                        : state.characters
+                            .map((e) => CharacterTile(character: e)))
+                    .toList()
+              ],
             );
           default:
             return const Text('Something went wrong!');

@@ -18,12 +18,20 @@ class CharacterListCubitFetchingData extends CharacterListState {}
 
 class CharacterListCubitItialized extends CharacterListState {
   final List<Character> characters;
+  final List<Character>? searchCharacters;
+  final bool hasSearched;
 
-  const CharacterListCubitItialized({required this.characters});
+  const CharacterListCubitItialized({
+    required this.characters,
+    this.searchCharacters,
+    this.hasSearched = false,
+  });
 
   @override
   List<Object?> get props => [
         characters,
+        searchCharacters,
+        hasSearched,
       ];
 }
 
