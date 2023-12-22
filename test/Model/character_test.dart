@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:anywhere_exercise/Model/character.dart';
+import 'package:simpsons_character_viewer/Model/character.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

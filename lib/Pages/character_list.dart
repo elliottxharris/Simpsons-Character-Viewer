@@ -1,5 +1,5 @@
-import 'package:anywhere_exercise/ViewModel/character_list_state.dart';
-import 'package:anywhere_exercise/Widgets/character_tile.dart';
+import 'package:simpsons_character_viewer/ViewModel/character_list_state.dart';
+import 'package:simpsons_character_viewer/Widgets/character_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

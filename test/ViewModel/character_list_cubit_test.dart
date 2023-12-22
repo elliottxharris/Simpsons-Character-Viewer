@@ -1,5 +1,5 @@
-import 'package:anywhere_exercise/Service/character_service.dart';
-import 'package:anywhere_exercise/ViewModel/character_list_state.dart';
+import 'package:simpsons_character_viewer/Service/character_service.dart';
+import 'package:simpsons_character_viewer/ViewModel/character_list_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

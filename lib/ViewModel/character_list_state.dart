@@ -1,5 +1,5 @@
-import 'package:anywhere_exercise/Model/character.dart';
-import 'package:anywhere_exercise/Service/character_service.dart';
+import 'package:simpsons_character_viewer/Model/character.dart';
+import 'package:simpsons_character_viewer/Service/character_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:bloc/bloc.dart';
 

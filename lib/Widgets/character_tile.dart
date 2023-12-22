@@ -1,5 +1,5 @@
-import 'package:anywhere_exercise/Model/character.dart';
-import 'package:anywhere_exercise/Pages/character_detail.dart';
+import 'package:simpsons_character_viewer/Model/character.dart';
+import 'package:simpsons_character_viewer/Pages/character_detail.dart';
 import 'package:flutter/material.dart';
 
 class CharacterTile extends StatelessWidget {

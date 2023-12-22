@@ -1,4 +1,4 @@
-import 'package:anywhere_exercise/Model/character.dart';
+import 'package:simpsons_character_viewer/Model/character.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
